@@ -16,5 +16,8 @@ connection.connect(function(err) {
   if (err) {
     throw err;
   }
-  console.log('Conected!!!!!!!!!!!');
+  console.log('MySQL Conected!!!!!!!!!!!');
 });
+module.exports = connection;
+
+

@@ -62,7 +62,7 @@ describe('Persistent Node Chat Server', function() {
         });
       });
     });
-          done();
+    done();
   });
 
   it('Should output all messages from the DB', function(done) {
