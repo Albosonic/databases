@@ -2,9 +2,7 @@ CREATE DATABASE chat;
 
 USE chat;
 
-CREATE TABLE messages (
-  /* Describe your table here.*/
-);
+CREATE TABLE messages (id INT(15), name VARCHAR(100), user INT(12));
 
 /* Create other tables and define schemas for them here! */
 
