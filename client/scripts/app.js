@@ -3,7 +3,7 @@ var app = {
 
   //TODO: The current 'handleUsernameClick' function just toggles the class 'friend'
   //to all messages sent by the user
-  server: 'https://api.parse.com/1/classes/messages/',
+  server: 'http://127.0.0.1:3000',
   username: 'anonymous',
   roomname: 'lobby',
   lastMessageId: 0,
@@ -36,13 +36,14 @@ var app = {
   },
 
   send: function(message) {
+    // console.log('*********', message);
     app.startSpinner();
 
     // POST the message to the server
     $.ajax({
-      url: app.server,
+      url: 'http://127.0.0.1:3000/classes/messages',
       type: 'POST',
-      data: JSON.stringify(message),
+      data: message,
       success: function (data) {
         // Clear messages input
         app.$message.val('');
@@ -58,7 +59,7 @@ var app = {
 
   fetch: function(animate) {
     $.ajax({
-      url: app.server,
+      url: 'http://127.0.0.1:3000/classes/messages',
       type: 'GET',
       data: { order: '-createdAt' },
       contentType: 'application/json',
@@ -214,7 +215,7 @@ var app = {
   handleSubmit: function(event) {
     var message = {
       username: app.username,
-      text: app.$message.val(),
+      message: app.$message.val(),
       roomname: app.roomname || 'lobby'
     };
 
